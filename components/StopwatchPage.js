@@ -2,8 +2,20 @@ import React from 'react'
 import { Component } from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
 import Stopwatch from './Stopwatch'
+import SequenceGenerator from './SequenceGenerator'
 
 export default class StopwatchPage extends Component {
+    constructor(props) {
+        super(props)
+        const seeds = []
+        for (let i = 0; i < 20; i++) {
+            seeds.push([Math.random(), Math.random()])
+        }
+        this.state = {
+            seeds: seeds
+        }
+    }
+
     render() {
         return (
             <View>
@@ -16,6 +28,7 @@ export default class StopwatchPage extends Component {
                     color='blue'
                     accessibilityLabel='Toggle Stopwatch'
                 />
+                <SequenceGenerator seeds={this.state.seeds}/>
             </View>
         )
     }

@@ -50,6 +50,7 @@ export default class Stopwatch extends Component {
 const styles = StyleSheet.create({
     textStyle: {
         fontFamily: 'Avenir Next',
-        fontSize: 50
+        fontSize: 50,
+        textAlign: 'center'
     }
 })
