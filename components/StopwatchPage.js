@@ -1,6 +1,6 @@
 import React from 'react'
 import { Component } from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import Stopwatch from './Stopwatch'
 import SequenceGenerator from './SequenceGenerator'
 
@@ -18,18 +18,21 @@ export default class StopwatchPage extends Component {
 
     render() {
         return (
-            <View>
-                <Stopwatch elapsedMS={this.props.elapsedMS} stopwatchIsRunning={this.props.stopwatchIsRunning} dispatch={this.props.dispatch}/>
-                <Button
-                    onPress={() => this.props.dispatch({
+            <TouchableOpacity style={styles.container} onPress={() => this.props.dispatch({
                         type: 'TOGGLE_TIME'
-                    })}
-                    title={`${this.props.stopwatchIsRunning ? 'Stop' : 'Start'} Stopwatch`}
-                    color='blue'
-                    accessibilityLabel='Toggle Stopwatch'
-                />
+                    })}>
+                <Stopwatch elapsedMS={this.props.elapsedMS} stopwatchIsRunning={this.props.stopwatchIsRunning} dispatch={this.props.dispatch}/>
                 <SequenceGenerator seeds={this.state.seeds}/>
-            </View>
+            </TouchableOpacity>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        height: '100%',
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+})
