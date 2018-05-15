@@ -5,21 +5,23 @@ import { connect } from 'react-redux'
 
 import StopwatchPage from '../components/StopwatchPage'
 
-const AppContainer = ({ elapsedMS, stopwatchIsRunning, dispatch }) => {
+const AppContainer = ({ sequenceLength, elapsedMS, stopwatchIsRunning, dispatch }) => {
     return (
         <View style={styles.container}>
-            <StopwatchPage elapsedMS={elapsedMS} stopwatchIsRunning={stopwatchIsRunning} dispatch={dispatch}/>
+            <StopwatchPage sequenceLength={sequenceLength} elapsedMS={elapsedMS} stopwatchIsRunning={stopwatchIsRunning} dispatch={dispatch}/>
         </View>
     )
 }
 
 AppContainer.propTypes = {
+    sequenceLength: PropTypes.number,
     elapsedMS: PropTypes.number,
     stopwatchIsRunning: PropTypes.bool
 }
 
 const mapStateToProps = (state) => {
     return {
+        sequenceLength: state.sequenceLength,
         elapsedMS: state.elapsedMS,
         stopwatchIsRunning: state.stopwatchIsRunning
     }

@@ -8,7 +8,7 @@ export default class StopwatchPage extends Component {
     constructor(props) {
         super(props)
         const seeds = []
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < this.props.sequenceLength; i++) {
             seeds.push([Math.random(), Math.random()])
         }
         this.state = {
