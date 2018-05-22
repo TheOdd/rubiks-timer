@@ -1,3 +1,6 @@
+// TODO: Rework state to only handle running and reset on stop as opposed to
+// toggling. This should be easier than what I'm doing right now.
+
 const defaultState = {
     sequenceLength: 25,
     elapsedMS: 0,
