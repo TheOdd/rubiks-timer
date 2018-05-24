@@ -21,6 +21,12 @@ const reducer = (state = defaultState, action) => {
                 elapsedMS: state.elapsedMS,
                 stopwatchIsRunning: !state.stopwatchIsRunning
             }
+        case 'RESET_TIME':
+            return {
+                sequenceLength: state.sequenceLength,
+                elapsedMS: 0,
+                stopwatchIsRunning: state.stopwatchIsRunning
+            }
         default:
             return state
     }
